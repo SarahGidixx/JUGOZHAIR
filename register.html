@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/all.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+        <link rel="stylesheet" href="assets/sass/style.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <title>JugozHairs  - Online Beauty Salon</title>
+    </head>
+   <body>
+        <div class="row__page">
+            <div class="regpage">
+                <form action="#" method="post" name="myform" onsubmit="return validate()">
+                    <div class="contact__area">
+                        <h2>Sign up for <span>free Account</span></h2>
+                        <div class="errorboxes">
+                            <h6 id="errorText"></h6>
+                        </div>
+                        <div class="row">
+                            <div class="reg1">
+                                <div class="col-sm-12 mb-30">
+                                    <div class="contact__area-form-item">
+                                        <label>First Name</label>
+                                        <input type="text" id="fname" name="fname" placeholder="Enter First Name">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mb-30">
+                                    <div class="contact__area-form-item1">
+                                        <label>Last Name</label>
+                                        <input type="text" id="Lname" name="Lname" placeholder="Enter Last Name">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reg2">
+                                <div class="col-sm-12 mb-30">
+                                    <div class="contact__area-form-item">
+                                        <label>Your Email</label>
+                                        <input type="text" id="mail" name="email" placeholder="Email Address">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mb-30">
+                                    <div class="contact__area-form-item2">
+                                        <label>Phone Number</label>
+                                        <input type="text" id="mobile" name="mobile" placeholder="Enter Phone Number">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="reg3">
+                                <div class="col-sm-12 mb-30">
+                                    <div class="contact__area-form-item">
+                                        <label>Password</label>
+                                        <input type="password" id="password" name="password" placeholder="Enter Password">
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 mb-30">
+                                    <div class="contact__area-form-item3">
+                                        <label>Confirm Password</label>
+                                        <input type="password" id="Cpass" name="Cpass" placeholder="Confirm Password">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mb-30">
+                                <div class="contact__area-form-item4">
+                                    <label>Account type:</label><br>
+                                    <input type="radio" id="ven" name="Account" value="vendor">
+                                    <label>Vendor</label><br>
+                                    (To register as a vendor please click the vendor account type,fill in your details and sign up)<br>
+                                    <input type="radio" id="cus" name="Account" value="customer">
+                                    <label>Customer</label><br>
+                                    (To register as a customer please click the vendor account type,fill in your details and sign up)<br><br>
+
+                                    <h6>Have an account? click here to <a href="login.html"><span>Login</span></a></h6>
+                                </div>
+                            </div>
+                        
+                            <div class="col-sm-12">
+                                <div class="contact__area-form-item">
+                                    <button class="theme-banner-btn" type="submit">Register<i class="fas fa-angle-double-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    
+ 
+
+
+        <!-- Main JS -->
+        <script src="assets/js/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- Counter up -->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <!-- Popper JS -->
+        <script src="assets/js/popper.min.js"></script>
+        <!-- Magnific JS -->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- Swiper JS -->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <!-- Waypoints JS -->
+        <script src="assets/js/jquery.waypoints.min.js"></script>
+        <!-- Mean menu -->
+        <script src="assets/js/jquery.meanmenu.min.js"></script>
+        <!-- Custom JS -->
+        <script src="assets/js/custom.js"></script>
+
+
+        <script>
+            function validate(){
+                let fname = document.getElementById("fname").value;
+                let lname = document.getElementById("Lname").value;
+                let email = document.getElementById("mail").value;
+                let mobile = document.getElementById("mobile").value;
+                let password = document.getElementById("password").value;
+                let Cpass = document.getElementById("Cpass").value;
+                let pattern = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+                let numbers = /^[0-9]+$/;
+                let letters = /^[A-Za-z]+$/;
+                let errors = ['please fill in first name','only letters are allowed','please fill in last name', 'only letters are allowed',
+                    'please fill in email','invalid email','please fill in phone number','invalid number',
+                    'number must be eleven digits', 'please enter password', 'password must be six characters', 'please confirm password','password does not match', 'please select account type'];
+                
+
+                let Account = document.myform.Account;
+                    let valid = false;
+                        for(i = 0; i < Account.length; i++){
+                            if(Account[i].checked){
+                                valid = true;
+                                break;
+                            }
+                        }
+
+                 
+                        
+                if(fname.trim() ==  ""){
+                    document.getElementById('errorText').innerHTML = errors[0];
+                    return false;
+                }else if(!letters.test(fname)){
+                    document.getElementById('errorText').innerHTML = errors[1];
+                    return false;
+                }else if(lname.trim() == ""){
+                    document.getElementById('errorText').innerHTML = errors[2];
+                    return false;
+                }else if(!letters.test(lname)){
+                    document.getElementById('errorText').innerHTML = errors[3];
+                    return false;
+                }else if(email.trim() == ""){
+                    document.getElementById('errorText').innerHTML = errors[4];
+                    return false;
+                }else if(!pattern.test(email)){
+                    document.getElementById('errorText').innerHTML = errors[5];
+                    return false;
+                }else if (mobile.trim() == ""){
+                    document.getElementById('errorText').innerHTML = errors[6];
+                    return false;
+                }else if(!numbers.test(mobile)){
+                    document.getElementById('errorText').innerHTML = errors[7];
+                }else if(mobile.length > 11 || mobile.length < 11){
+                    document.getElementById('errorText').innerHTML = errors[8];
+                    return false;
+                }else if(password.trim() == ""){
+                    document.getElementById('errorText').innerHTML = errors[9];
+                    return false;
+                }else if(password.length > 6 || password.length < 6 ){
+                    document.getElementById('errorText').innerHTML = errors[10];
+                    return false; 
+                }else if(Cpass.trim() == ""){
+                    document.getElementById('errorText').innerHTML = errors[11];
+                    return false; 
+                }else if(Cpass.trim() !== password){
+                    document.getElementById('errorText').innerHTML = errors[12];
+                    return false;
+                }else if(!valid){
+                    document.getElementById('errorText').innerHTML = errors[13];
+                    return false;
+                }else{
+                    document.getElementById('errorboxes').style.backgroundColor = 'green';
+                    document.getElementById('errorText').innerHTML = 'registration successful';
+                    localStorage.setItem('FIRSTNAME' , fname);
+                    localStorage.setItem('EMAIL' , email);
+                    return true;
+                    }         
+            }
+        </script>
+    </body>
+</html>
