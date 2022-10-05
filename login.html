@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="assets/img/favicon.png">
+        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+        <link rel="stylesheet" href="assets/css/all.css">
+        <link rel="stylesheet" href="assets/css/animate.css">
+        <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
+        <link rel="stylesheet" href="assets/css/magnific-popup.css">
+        <link rel="stylesheet" href="assets/css/meanmenu.min.css">
+        <link rel="stylesheet" href="assets/sass/style.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+        <title>JugozHairs  - Online Beauty Salon</title>
+    </head>
+    <body>
+
+        <div class="login__page" data-background="assets/img/bg/pexels-photo1.jpeg"></div>
+        
+        <!-- <div class="row"> -->
+            <div class="mypage">
+                <form action="index.html" method="post" name="myform" onsubmit="return validate()">
+                   <div class="page__area">
+                        <h2><span>Login</span></h2>
+                        <div class="errorboxes">
+                            <h6 id="errorText"></h6>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 mb-30">
+                                <div class="page__area-form-item">
+                                    <label>Username</label>
+                                    <input type="text" id="USname" name="USname" placeholder="Enter Username">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mb-30">
+                                <div class="page__area-form-item">
+                                    <label>Password</label>
+                                    <input type="password" id="Password" name="Password" placeholder="Enter Password">
+                                </div>
+                            </div>
+                            <div class="col-sm-12 mb-30">
+                                <div class="page__area-form-item">
+                                    <label>Confirm Password</label>
+                                    <input type="password" id="Cpass" name="Cpass" placeholder="Confirm Password">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="page__area-form-item">
+                                    <button class="theme-banner-btn" type="submit">Login<i class="fas fa-angle-double-right"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </form>
+            </div>
+
+        </div>
+
+       
+
+        <!--Main JS -->
+        <script src="assets/js/jquery-3.6.0.min.js"></script>
+        <!-- Bootstrap JS -->
+        <script src="assets/js/bootstrap.min.js"></script>
+        <!-- Counter up -->
+        <script src="assets/js/jquery.counterup.min.js"></script>
+        <!-- Popper JS -->
+        <script src="assets/js/popper.min.js"></script>
+        <!-- Magnific JS -->
+        <script src="assets/js/jquery.magnific-popup.min.js"></script>
+        <!-- Swiper JS -->
+        <script src="assets/js/swiper-bundle.min.js"></script>
+        <!-- Waypoints JS -->
+        <script src="assets/js/jquery.waypoints.min.js"></script>
+        <!-- Mean menu -->
+        <script src="assets/js/jquery.meanmenu.min.js"></script>
+        <!-- Custom JS -->
+        <script src="assets/js/custom.js"></script>
+
+        <script>
+            function validate(){
+                let USname = document.getElementById("USname").value;
+                let Password  = document.getElementById("Password").value;
+                let Cpass = document.getElementById("Cpass").value;
+                let letters = /^[A-Za-z]+$/;
+                let errors = ['please fill in Username','only letters are allowed',
+                'please enter password', 'password must be six characters', 'please confirm password','password does not match'];
+            
+                
+
+                if(USname.trim() ==  ""){
+                    document.getElementById('errorText').innerHTML = errors[0];
+                    return false;
+                }else if(!letters.test(USname)){
+                    document.getElementById('errorText').innerHTML = errors[1];
+                    return false;
+                }else if(Password.trim() == ""){
+                    document.getElementById('errorText').innerHTML = errors[2];
+                    return false;
+                }else if(Password.length > 6 || Password.length < 6 ){
+                    document.getElementById('errorText').innerHTML = errors[3];
+                    return false; 
+                }else if(Cpass.trim() == ""){
+                    document.getElementById('errorText').innerHTML = errors[4];
+                    return false; 
+                }else if(Cpass.trim() !== Password){
+                    document.getElementById('errorText').innerHTML = errors[5];
+                    return false;
+                }else{
+                    document.getElementById('errorboxes').style.backgroundColor = 'green';
+                    document.getElementById('errorText').innerHTML = 'registration successful';
+                    return true;
+                }         
+            }
+        </script>
+    </body>
+</html>
